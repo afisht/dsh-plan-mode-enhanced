@@ -23,7 +23,29 @@
 
 ## 安装
 
-> 前提：已安装官方 DeepSeek Harness（`deepseek-harness` 项目，含 desktop / web 两种运行形态，本插件通用）。
+> 前提：已安装官方 DeepSeek Harness（`deepseek-harness` 项目，含 desktop / web 两种运行形态，本插件通用），且机器上有 Node.js（DSH 本身要求 Node ≥ 20）。
+
+### 一键安装（推荐）
+
+clone（或下载解压）本仓库到任意目录后，在该目录运行：
+
+```
+node install.mjs
+```
+
+脚本会自动完成全部安装：把插件链接进 `~/.dsh/profiles/desktop`（或检测到的 profile）的 `node_modules`，并追加 `cordis.patch.yml` 所需的全部配置（`permission` 预设表、`plan-mode` 重新启用、插件条目）。
+
+- 指定其他 profile：`node install.mjs --profile web`
+- **幂等**：重复运行安全，已装的部分自动跳过，不会产生重复条目
+- **跨平台**：Windows 用 junction（无需管理员），macOS/Linux 用符号链接
+- **与手动安装共存**：已手动装过则报告"已就绪"直接退出
+- 每次修改 patch 前会先备份为 `cordis.patch.yml.bak-install-<时间戳>`
+
+装完**重启 DeepSeek Harness** 生效。
+
+### 手动安装（备选）
+
+无法运行 Node 时，按以下三步手动操作：
 
 1. **放置插件源码**：clone（或下载解压）本仓库到任意目录，例如 `~/dsh-work/dsh-plan-mode-enhanced`。
 2. **链接进 profile 的 node_modules**：在目标 profile（如 `desktop` 或 `web`）的 `node_modules` 下创建 junction/软链接指向插件目录。
@@ -66,7 +88,7 @@
    ```
 4. **重启 DeepSeek Harness**（改 profile patch 需要重启加载）。
 
-> 说明：第 3 步的 `permission` 预设表和 `plan-mode disabled: false` 是**运行本插件必需的配套配置**（预设表定义下拉选项，`planMode` 服务是桥接与卡片的依赖），不是插件代码的一部分，需要留在 profile 层。
+> 说明：上面的 `permission` 预设表和 `plan-mode disabled: false` 是**运行本插件必需的配套配置**（预设表定义下拉选项，`planMode` 服务是桥接与卡片的依赖），不是插件代码的一部分，需要留在 profile 层；`install.mjs` 会一次性写入。
 
 ## 使用
 
