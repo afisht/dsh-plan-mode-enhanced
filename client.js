@@ -14,9 +14,8 @@
  * priority -20 and only matches plan-review interactions, so it takes over
  * that card while every other question falls through to the official flow.
  *
- * Hand-authored CJS bundle (no build step), mirroring dsh-open-explorer /
- * dshmarket; externals come from the loader's static module table
- * (react, @deepseek-ai/dsh-client-ui-primitives).
+ * Hand-authored CJS bundle (no build step); externals come from the loader's
+ * static module table (react, @deepseek-ai/dsh-client-ui-primitives).
  */
 window.__ModuleLoader__.load({
   id: 'dsh-plan-mode-enhanced',
@@ -91,8 +90,8 @@ window.__ModuleLoader__.load({
     }
 
     /**
-     * Self-drawn right-side preview panel: a fixed right panel (visuals follow
-     * the better-sidebar preview) rendering the plan markdown directly from the
+     * Self-drawn right-side preview panel: a fixed right panel (a compact
+     * reading surface) rendering the plan markdown directly from the
      * card's in-hand content — no temp file, no host round-trip, no external
      * dependency. Rendered via portal onto document.body; Esc or the close
      * button dismisses it. No mask: the chat stays interactive underneath so
