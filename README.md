@@ -21,6 +21,16 @@
 | 三操作按钮 | 确认执行（批准退出计划模式）/ 拒绝（Keep planning）/ 去聊天里说（取消，与官方一致） |
 | 隔离性 | 仅在 `plan-review` 交互时接管输入框；普通 `ask_user_question` 仍走官方问题流 |
 
+## 效果预览
+
+权限下拉中的 **Plan Mode** 选项（选中后即进入真实计划模式）：
+
+![Plan Mode 权限下拉](docs/preview-permission-dropdown.png)
+
+弹卡后的完整场景：左侧为计划审阅卡片（完整计划正文 + 修改意见输入框 + 三个操作按钮），右侧为点击"预览计划"打开的宽幅预览面板：
+
+![计划审阅卡片与预览面板](docs/preview-review-card.png)
+
 ## 安装
 
 > 前提：已安装官方 DeepSeek Harness（`deepseek-harness` 项目，含 desktop / web 两种运行形态，本插件通用），且机器上有 Node.js（DSH 本身要求 Node ≥ 20）。
