@@ -1,0 +1,45 @@
+{
+  "name": "dsh-plan-mode-enhanced",
+  "version": "0.1.0",
+  "description": "Plan Mode enhancement for DeepSeek Harness: adds a Plan Mode entry to the permission dropdown (bridged to the real plan-mode state) and upgrades the plan review card with a feedback box plus a built-in full-width preview panel. Zero external dependencies.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "@deepseek-ai/cordis": "^4.0.0",
+    "@deepseek-ai/dsh-client-ui-primitives": "^0.1.0-rc.6"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-primitives": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "plan-mode",
+    "plugin"
+  ],
+  "license": "MIT"
+}

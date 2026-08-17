@@ -1,0 +1,8 @@
+# Your patch layer for this plugin package, applied when the package is
+# mounted as a profile bundle (dsh.bundle.patch). The desktop profile mounts
+# this plugin with a manual insert row in the profile's own cordis.patch.yml
+# (the established linked-plugin pattern); this file makes the package
+# self-describing if it is ever promoted to the bundle channel.
+- insert:
+    - id: plan-mode-enhanced
+      name: 'dsh-plan-mode-enhanced'
